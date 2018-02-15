@@ -6,6 +6,7 @@ import collections
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.models import User
 from django.db.models import Sum
 from django.http import HttpResponse, HttpResponseRedirect
@@ -53,7 +54,7 @@ def detail(request, fv_id):
     }
     return render(request, 'fakturownia/show.html', context)
 
-
+@csrf_protect
 @login_required(login_url='login/')
 def edit(request, fv_id):
     entry = get_object_or_404(FV, pk=fv_id)
@@ -100,6 +101,7 @@ def delete(request, fv_id):
     return redirect('showall')
 
 
+@csrf_protect
 @login_required(redirect_field_name='login/')
 def new(request):
     if request.method == "POST":
@@ -119,13 +121,14 @@ def new(request):
     return render(request, 'fakturownia/new.html', {'form': form})
 
 
+@csrf_protect
 @login_required(redirect_field_name='login/')
 def signup(request):
     print(request.POST)
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            if form.cleaned_data['reg_agree'] == u'on':
+            if 'id_agree' in request.POST:
                 print('reg_agreed')
                 user = form.save(commit=True)
                 user_id = User.objects.get(username=form.cleaned_data['username'])
