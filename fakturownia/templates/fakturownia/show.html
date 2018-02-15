@@ -17,128 +17,128 @@
 
 </head>
 <body>
-    <div class="container">
-        <h1 id="fv-header">Faktura</h1>
-        <h5 id="fv-id">Nr {{ fv.id }}</h5>
-        <div class="row">
-            <div class="col-sm">
-                <div class="row">
-                    <div class="col-sm text-right fv-details-name">Sprzedawca: </div>
-                    <div class="col-sm text-left  fv-details-val">{{ profile.profile.seller_data }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm text-right fv-details-name">Adres: </div>
-                    <div class="col-sm text-left  fv-details-val">{{ profile.profile.address }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm text-right fv-details-name">NIP: </div>
-                    <div class="col-sm text-left  fv-details-val">{{ profile.profile.nip }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm text-right fv-details-name">Nr. telefonu: </div>
-                    <div class="col-sm text-left  fv-details-val">{{ profile.profile.phonenumber }}</div>
-                </div>
+<div class="container">
+    <h1 id="fv-header">Faktura</h1>
+    <h5 id="fv-id">Nr {{ fv.id }}</h5>
+    <div class="row">
+        <div class="col-sm">
+            <div class="row">
+                <div class="col-sm text-right fv-details-name">Sprzedawca:</div>
+                <div class="col-sm text-left  fv-details-val">{{ profile.profile.seller_data }}</div>
             </div>
-            <div class="col-sm">
-                <div class="row">
-                    <div class="col-sm text-right fv-details-name">Nabywca: </div>
-                    <div class="col-sm text-left  fv-details-val">{{ fv.client }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm text-right fv-details-name">Adres: </div>
-                    <div class="col-sm text-left  fv-details-val">{{ fv.address }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm text-right fv-details-name">NIP: </div>
-                    <div class="col-sm text-left  fv-details-val">{{ fv.nip }}</div>
-                </div>
+            <div class="row">
+                <div class="col-sm text-right fv-details-name">Adres:</div>
+                <div class="col-sm text-left  fv-details-val">{{ profile.profile.address }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm text-right fv-details-name">NIP:</div>
+                <div class="col-sm text-left  fv-details-val">{{ profile.profile.nip }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm text-right fv-details-name">Nr. telefonu:</div>
+                <div class="col-sm text-left  fv-details-val">{{ profile.profile.phonenumber }}</div>
             </div>
         </div>
-        <p class="clearfix"></p>
-        <div class="row">
-            <div class="col-sm">
-                <div class="row">
-                    <div class="col-sm text-right fv-details-name">Data Wystawienia: </div>
-                    <div class="col-sm text-left  fv-details-val">{{ fv.fv_date }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm text-right fv-details-name">Data Dostarczenia Towarów: </div>
-                    <div class="col-sm text-left  fv-details-val">{{ fv.complete_date }}</div>
-                </div>
+        <div class="col-sm">
+            <div class="row">
+                <div class="col-sm text-right fv-details-name">Nabywca:</div>
+                <div class="col-sm text-left  fv-details-val">{{ fv.client }}</div>
             </div>
-            <div class="col-sm">
-                <div class="row">
-                    <div class="col-sm text-right fv-details-name">Sposób płatności: </div>
-                    <div class="col-sm text-left  fv-details-val">{{ fv.get_payment_method_display }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm text-right fv-details-name">Numer konta: </div>
-                    <div class="col-sm text-left  fv-details-val">{{ fv.iban }}</div>
-                </div>
+            <div class="row">
+                <div class="col-sm text-right fv-details-name">Adres:</div>
+                <div class="col-sm text-left  fv-details-val">{{ fv.address }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm text-right fv-details-name">NIP:</div>
+                <div class="col-sm text-left  fv-details-val">{{ fv.nip }}</div>
             </div>
         </div>
-        <table class="table table-striped">
-          <thead>
+    </div>
+    <p class="clearfix"></p>
+    <div class="row">
+        <div class="col-sm">
+            <div class="row">
+                <div class="col-sm text-right fv-details-name">Data Wystawienia:</div>
+                <div class="col-sm text-left  fv-details-val">{{ fv.fv_date }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm text-right fv-details-name">Data Dostarczenia Towarów:</div>
+                <div class="col-sm text-left  fv-details-val">{{ fv.complete_date }}</div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="row">
+                <div class="col-sm text-right fv-details-name">Sposób płatności:</div>
+                <div class="col-sm text-left  fv-details-val">{{ fv.get_payment_method_display }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm text-right fv-details-name">Numer konta:</div>
+                <div class="col-sm text-left  fv-details-val">{{ fv.iban }}</div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Lp.</th>
+            <th scope="col">Nazwa</th>
+            <th scope="col">PKWiU</th>
+            <th scope="col">Ilość</th>
+            <th scope="col">Jm</th>
+            <th scope="col">Cena netto</th>
+            <th scope="col">Wartość netto</th>
+            <th scope="col">Stawka VAT</th>
+            <th scope="col">Kwota VAT</th>
+            <th scope="col">Wartosć brutto</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in fv.products.all %}
             <tr>
-              <th scope="col">Lp.</th>
-              <th scope="col">Nazwa</th>
-              <th scope="col">PKWiU</th>
-              <th scope="col">Ilość</th>
-              <th scope="col">Jm</th>
-              <th scope="col">Cena netto</th>
-              <th scope="col">Wartość netto</th>
-              <th scope="col">Stawka VAT</th>
-              <th scope="col">Kwota VAT</th>
-              <th scope="col">Wartosć brutto</th>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ item.name }}</td>
+                <td>{{ " " }}</td>
+                <td>{{ " " }}</td>
+                <td>{{ " " }}</td>
+                <td>{{ item.price_netto }}</td>
+                <td>{{ item.price_netto }}</td>
+                <td>{{ item.vat }}</td>
+                <td>{{ item.vat_value }}</td>
+                <td>{{ item.price }}</td>
             </tr>
-          </thead>
-          <tbody>
-            {%  for item in fv.products.all %}
-                <tr>
-                    <th scope="row">{{ forloop.counter  }}</th>
-                    <td>{{ item.name }}</td>
-                    <td>{{ " " }}</td>
-                    <td>{{ " " }}</td>
-                    <td>{{ " " }}</td>
-                    <td>{{ item.price_netto }}</td>
-                    <td>{{ item.price_netto }}</td>
-                    <td>{{ item.vat }}</td>
-                    <td>{{ item.vat_value }}</td>
-                    <td>{{ item.price }}</td>
-                </tr>
-            {% endfor %}
-          <tr>
-              <th colspan="5" rowspan="2" class="text-center sumed">Razem do zapłaty<br> <span>{{ suma }} PLN</span></th>
-              <th> Razem</th>
-              <th>{{ suma_netto }}</th>
-              <th> X </th>
-              <th> {{ suma_vat }} </th>
-              <th> {{ suma }} </th>
-          </tr>
-          <tr>
-              <th>W tym: </th>
-              <th> {{ suma_netto }} </th>
-              <th> 23% </th>
-              <th> {{ suma_vat }} </th>
-              <th> {{ suma }} </th>
-          </tr>
-          </tbody>
-        </table>
+        {% endfor %}
+        <tr>
+            <th colspan="5" rowspan="2" class="text-center sumed">Razem do zapłaty<br> <span>{{ suma }} PLN</span></th>
+            <th> Razem</th>
+            <th>{{ suma_netto }}</th>
+            <th> X</th>
+            <th> {{ suma_vat }} </th>
+            <th> {{ suma }} </th>
+        </tr>
+        <tr>
+            <th>W tym:</th>
+            <th> {{ suma_netto }} </th>
+            <th> 23%</th>
+            <th> {{ suma_vat }} </th>
+            <th> {{ suma }} </th>
+        </tr>
+        </tbody>
+    </table>
     <div class="row">
         <div class="col-md">
             <p><span class="bolted">Zapłacono: </span>
-            {% if fv.get_payment_method_display == 'gotówka' %}
-                {{ suma }}
-            {% else %}
-                0
-            {% endif %}
-            PLN <span class="bolted"> z </span> {{ suma }}
+                {% if fv.get_payment_method_display == 'gotówka' %}
+                    {{ suma }}
+                {% else %}
+                    0
+                {% endif %}
+                PLN <span class="bolted"> z </span> {{ suma }}
             </p>
         </div>
     </div>
     <p class="clearfix"></p>
     <div class="row">
-        <div class="col-md receiver" >
+        <div class="col-md receiver">
             <p class="tip">Imię i nazwisko i podpis osoby upoważnionej do odebtania dokumentu</p>
 
         </div>
@@ -147,24 +147,21 @@
             <p class="tip">Imię i nazwisko i podpis osoby upoważnionej do wystawienia dokumentu</p>
         </div>
     </div>
-    </div>
+</div>
 
 
-
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous">
-    </script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous">
+</script>
 
 </body>
 </html>

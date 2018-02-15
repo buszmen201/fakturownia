@@ -8,8 +8,6 @@ urlpatterns = [
     url(r'login/$', auth_views.login, name='login'),
     url(r'^register/$', views.signup, name='signup'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
-    #url(r'^logout/$', views.logout, name='logout'),
-
     url(r'showall/$', views.index, name='showall'),
     url(r'^livesearch$', views.search, name='livesearch'),
     url(r'^show/new/', views.new, name='new'),

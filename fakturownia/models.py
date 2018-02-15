@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-import datetime
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 
+import datetime
+
+from django.contrib.auth.models import User
 from django.db import models
 from localflavor.generic.models import IBANField
+
 
 # Create your models here.
 
@@ -69,10 +69,3 @@ class Profile(models.Model):
     address = models.CharField(max_length=80, blank=True)
     nip = models.CharField(max_length=11, unique=False)
     phonenumber = models.CharField(max_length=9, unique=False)
-
-
-#@receiver(post_save, sender=User)
-#def update_user_profile(sender, instance, created, **kwargs):
-#    if created:
-#        Profile.objects.create(user=instance)
-#    instance.profile.save()

@@ -29,12 +29,12 @@ function addNext() {
     $('#livesearch').show().css("border-width", "0px");
 }
 
-function chooseThis(cur_node, val){
-    cur_node.setAttribute("onClick","removeThis(this, " + val + ")");
+function chooseThis(cur_node, val) {
+    cur_node.setAttribute("onClick", "removeThis(this, " + val + ")");
     console.log(cur_node);
     $('.search-bar').hide().val("");
     $('#livesearch').hide().html("");
-    $(cur_node).insertAfter( "#products_id" );
+    $(cur_node).insertAfter("#products_id");
     val += ", ";
     document.getElementById("products_id").value += val;
 }
@@ -45,7 +45,7 @@ function removeThis(cur_node, val) {
     console.log(arr);
     var new_vals = ""
     for (var i = 0; i < arr.length; i++) {
-        if ( (arr[i] != val) && (arr[i].length > 0) ) {
+        if ((arr[i] != val) && (arr[i].length > 0)) {
             console.log(arr[i])
             new_vals += arr[i]
             new_vals += ", ";
@@ -53,9 +53,6 @@ function removeThis(cur_node, val) {
     }
     $('p[value=' + val + ']').remove();
     document.getElementById("products_id").value = new_vals;
-
-
-
 
 
 }

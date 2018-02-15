@@ -1,22 +1,27 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.http import HttpResponse, HttpResponseRedirect
+
+import collections
+
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.db.models import Sum
-import collections
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import FV, Product, Profile
-from .forms import EditFV, SignUpForm
 from django.template.defaulttags import register
+
+from .forms import EditFV, SignUpForm
+from .models import FV, Product, Profile
+
 
 # Create your views here.
 
 
 def mainpage(request):
     return render(request, 'fakturownia/manage.html', {})
+
 
 @login_required(login_url='login/')
 def index(request):
@@ -32,6 +37,7 @@ def index(request):
     }
     return render(request, 'fakturownia/index.html', context)
 
+
 @login_required(login_url='login/')
 def detail(request, fv_id):
     fv = get_object_or_404(FV, pk=fv_id)
@@ -46,6 +52,7 @@ def detail(request, fv_id):
         'profile': User.objects.get(pk=request.user.id)
     }
     return render(request, 'fakturownia/show.html', context)
+
 
 @login_required(login_url='login/')
 def edit(request, fv_id):
@@ -80,16 +87,18 @@ def search(request):
         prod = Product.objects.filter(name__icontains=request.GET['q'])
         rdy_html = ""
         for item in prod:
-            rdy_html += '<p onClick="chooseThis(this,' + str(item.id) + ')" value=' + str(item.id) + '>'\
+            rdy_html += '<p onClick="chooseThis(this,' + str(item.id) + ')" value=' + str(item.id) + '>' \
                         + item.name + " | " + str(item.price) + "</p><br />"
         if rdy_html == "":
             rdy_html += "Nic nie znaleziono"
     return HttpResponse(rdy_html)
 
+
 @login_required(redirect_field_name='login/')
 def delete(request, fv_id):
     FV.objects.filter(pk=fv_id).delete()
     return redirect('showall')
+
 
 @login_required(redirect_field_name='login/')
 def new(request):
@@ -108,6 +117,7 @@ def new(request):
     else:
         form = EditFV()
     return render(request, 'fakturownia/new.html', {'form': form})
+
 
 @login_required(redirect_field_name='login/')
 def signup(request):
@@ -139,6 +149,7 @@ def signup(request):
         print('clean_render')
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
+
 
 @login_required(redirect_field_name='login/')
 def logout_view(request):

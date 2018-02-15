@@ -1,8 +1,9 @@
-from django.forms import ModelForm
 from django import forms
-from .models import FV
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.forms import ModelForm
+
+from .models import FV
 
 
 class EditFV(ModelForm):
@@ -24,7 +25,7 @@ class SignUpForm(UserCreationForm):
     address = forms.CharField(max_length=80)
     nip = forms.CharField(max_length=11)
     phonenumber = forms.CharField(max_length=9)
-    
+
     class Meta:
         model = User
         fields = ('username', 'password1', 'password2', 'seller_data', 'address', 'nip', 'phonenumber')
@@ -35,4 +36,3 @@ class SignUpForm(UserCreationForm):
             'nip': forms.TextInput(attrs={'class': 'form-control'}),
             'phonenumber': forms.TextInput(attrs={'class': 'form-control'})
         }
-
