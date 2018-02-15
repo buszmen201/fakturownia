@@ -1,0 +1,67 @@
+#fv-header {
+    color: dodgerblue;
+    font-weight: bolder;
+}
+
+#fv-id {
+    color: aqua;
+    font-weight: lighter;
+    padding-bottom: 50px;
+}
+
+.clearfix {
+    border-bottom: dodgerblue 1px solid;
+    margin-top: 20px;
+}
+
+.fv-details-name {
+    text-transform: uppercase;
+    color: lightgrey;
+    font-weight: bolder;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.sumed {
+    background-color: dodgerblue;
+    color: white;
+}
+.sumed > span {
+
+    font-size: larger;
+}
+
+span.bolted {
+    font-weight: bold;
+}
+
+div.receiver, div.signer {
+    height: 200px;
+    border: dodgerblue 2px solid;
+    margin: 10px;
+}
+
+div.signer, div.signer > span {
+    position:relative;
+    text-align: center;
+}
+div.signer > p.tip, div.receiver > p.tip {
+    width: 100%;
+    position:absolute; bottom:0px;
+}
+
+ div.signer > p.sign {
+     width: 100%;
+     position:absolute; bottom:30px;
+
+ }
+
+ p.tip {
+     color: lightgrey;
+ }
+
+ p.sign {
+     font-weight: bold;
+ }

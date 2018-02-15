@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fakturownia</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"
+    >
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <p class="pull-right">
+            <a href="{% url 'logout' %}">
+                <button type="button" class="btn btn-danger">Wyloguj się!</button>
+            </a>
+
+        </p>
+        <h1>Aktualne faktury:</h1>
+        <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Lp.</th>
+                  <th scope="col">Klient</th>
+                  <th scope="col">Adres</th>
+                  <th scope="col">Ilość przedmiotów</th>
+                  <th scope="col">Metoda płatności</th>
+                  <th scope="col">Cena</th>
+                  <th>Opcje</th>
+                </tr>
+              </thead>
+              <tbody>
+                {%  for item in FV_s %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter  }}</th>
+                        <td>{{ item.client }}</td>
+                        <td>{{ item.address }}</td>
+                        <td>{{ item.products.all.count }}</td>
+                        <td>{{ item.get_payment_method_display }}</td>
+                        <td>
+                        {% with item_id=item.id %}
+                            {% with price=prices|get_item:item_id %}
+                                {{ price.suma }} PLN
+                            {% endwith  %}
+                        {% endwith %}
+                        </td>
+                        <td><a clasśs="far fa-edit" href="{% url 'edit' item.id %}"></a>
+                            <a class="fas fa-eye" href="{% url 'detail' item.id %}"></a>
+                            <a class="fas fa-eraser" href="{% url 'delete' item.id %}"></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        <p>
+            <a href="{% url 'new' %}">
+                <button type="button" class="btn btn-success">+ Dodaj nową</button>
+            </a>
+        </p>
+    </div>
+</body>
+</html>

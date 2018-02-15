@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+    <title>Edytujesz fakturę nr. {{ fv_id }}</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    >
+    <link rel="stylesheet"
+          href="{% static 'fakturownia/login_logout.css' %}"
+    >
+</head>
+<body>
+    <div class="text-center" style="padding:50px 0">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <h1>FAKTUROWNIA</h1>
+	<div class="logo">Rejestracja</div>
+	<div class="login-form-1">
+		<form id="register-form" method="post" class="text-left" action="{% url 'signup' %}">
+            {% csrf_token %}
+			<div class="login-form-main-message"></div>
+			<div class="main-login-form">
+				<div class="login-group">
+					<div class="form-group">
+						<label for="id_username" class="sr-only">Użytkownik</label>
+						<input type="text" class="form-control" id="id_username" name="username" placeholder="Użytkownik">
+					</div>
+					<div class="form-group">
+						<label for="id_password1" class="sr-only">Hasło</label>
+						<input type="password" class="form-control" id="id_password1" name="password1" placeholder="Hasło">
+					</div>
+					<div class="form-group">
+						<label for="id_password2" class="sr-only">Powtórz hasło:</label>
+						<input type="password" class="form-control" id="id_password2" name="password2" placeholder="Powtórz hasło">
+					</div>
+
+					<div class="form-group">
+						<label for="id_seller_data" class="sr-only">Dane sprzedającego</label>
+						<input type="text" class="form-control" id="id_seller_data" name="seller_data" placeholder="Dane sprzedającego">
+					</div>
+                    <div class="form-group">
+						<label for="id_address" class="sr-only">Andres sprzedającego</label>
+						<input type="text" class="form-control" id="id_address" name="address" placeholder="Adrres sprzedającego">
+					</div>
+                    <div class="form-group">
+						<label for="id_nip" class="sr-only">NIP</label>
+						<input type="text" class="form-control" id="id_nip" name="nip" placeholder="NIP">
+					</div>
+                    <div class="form-group">
+						<label for="id_phonenumber" class="sr-only">Numer telefonu</label>
+						<input type="text" class="form-control" id="id_phonenumber" name="phonenumber" placeholder="Numer telefonu">
+					</div>
+
+					<div class="form-group login-group-checkbox">
+						<input type="checkbox" class="" id="id_agree" name="reg_agree">
+						<label for="id_agree">Akceptuję <a href="#">regulamin serwisu</a></label>
+					</div>
+				</div>
+				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+			</div>
+			<div class="etc-login-form">
+				<p>Masz już konto? <a href="{% url 'login' %}">Zaloguj się tutaj</a></p>
+			</div>
+		</form>
+	</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous">
+    </script>
+</body>
+</html>
